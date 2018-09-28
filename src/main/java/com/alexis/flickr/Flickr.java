@@ -13,9 +13,10 @@ import org.json.JSONObject;
  */
 public class Flickr {
 
-    String URL = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=41014e55b2a616bc84ba31aa9c8966cb&per_page=10&format=json&nojsoncallback=1";
-    String secret = "ec70c827417a7332";
-    String key = "41014e55b2a616bc84ba31aa9c8966cb";
+    private static String URL_GET_RECENT = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=41014e55b2a616bc84ba31aa9c8966cb" +
+            "&per_page=10&format=json&nojsoncallback=1";
+    private static String SECRET = "ec70c827417a7332";
+    private static String KEY = "41014e55b2a616bc84ba31aa9c8966cb";
 
     public Flickr(){}
 
@@ -26,10 +27,14 @@ public class Flickr {
             HttpResponse<JsonNode> response = Unirest.get(URL).header("accept", "application/json").asJson();
             JSONObject jsonObject = response.getBody().getObject();
 
-            /* JSON stuff from my old project
+            /*
+
+            ** JSON stuff from my old project - Needs to be tailored to Flickr JSON data **
+
             JSONArray items = jsonObject.getJSONArray("items");
             JSONObject itemsObj = items.getJSONObject(0);
             JSONObject volInfoObj = itemsObj.getJSONObject("volumeInfo");
+
             */
 
             return  jsonObject.toString();
