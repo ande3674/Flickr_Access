@@ -143,8 +143,6 @@ public class BookClient {
 
 
 
-
-
     /* These are some testing methods and shouldn't be used in the final project!!! */
 
     public static String getHarry() {
